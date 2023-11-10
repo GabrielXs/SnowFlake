@@ -9,6 +9,7 @@ import org.junit.Assert
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.Before
 import java.util.*
 
 /**
@@ -18,6 +19,10 @@ import java.util.*
  */
 class SnowFlakeTest {
 
+    @Before
+    fun finish() {
+        SnowflakeGenerator.reset()
+    }
 
     @Test
     fun `Should throw an exception when machineId is set to its maximum value`() {
