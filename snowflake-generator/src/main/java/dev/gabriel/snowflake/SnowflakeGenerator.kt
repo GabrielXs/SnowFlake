@@ -1,6 +1,7 @@
 package dev.gabriel.snowflake
 
 import dev.gabriel.snowflake.config.Structure
+import org.jetbrains.annotations.TestOnly
 import java.util.Date
 
 /**
@@ -43,7 +44,7 @@ object SnowflakeGenerator {
         }
         lastTimeStamp = actualTimeStamp
 
-        return (timestamp shl (10 + 12)) + (applicationId shl 12) + sequence
+        return (timestamp shl (structure.machineIdBits + structure.sequenceBits)) + (applicationId shl structure.sequenceBits) + sequence
     }
 
     /**
@@ -93,5 +94,12 @@ object SnowflakeGenerator {
     fun extractSequence(id: Long, structure: Structure = Structure.createDefault()): Int {
         val sequenceMask = (1L shl structure.sequenceBits) - 1
         return (id and sequenceMask).toInt()
+    }
+
+
+    @TestOnly
+    fun reset(){
+        lastTimeStamp = -1L
+        sequence = -1L
     }
 }
