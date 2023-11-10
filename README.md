@@ -1,8 +1,5 @@
 # Kotlin Snowflake Library
 
-![GitHub](https://img.shields.io/github/license/GabrielXs/SnowFlake)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/GabrielXs/SnowFlake)
-
 A Kotlin library for understanding and implementing the Snowflake algorithm, which is commonly used for generating unique identifiers.
 
 ## Table of Contents
